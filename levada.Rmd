@@ -20,8 +20,8 @@ ggplot(levada, aes(x = Date, y = Percent, color = Party)) +
   geom_point() +
   geom_line() +
   expand_limits(y = c(0, 30)) +
-  labs(title = "Percent of Decided Voters for LDPR, KPRF in Hypothetical Upcoming Election",
-       subtitle = "Data from Levada Center polls", 
+  labs(title = "Percent for KPRF, LDPR, United Russia in Hypothetical Upcoming Election",
+       subtitle = "Data from Levada Center polls; Decided Voters Only", 
        caption = "Link to data source: https://www.levada.ru/2020/09/07/elektoralnye-rejtingi-partij-4/")
 
 ggsave("levada.png")
