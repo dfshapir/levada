@@ -1,0 +1,29 @@
+---
+title: "Levada"
+author: "Daniel Shapiro"
+date: "9/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(readxl)
+```
+
+```{r dataread}
+levada <- read_xlsx("raw-data/ldprkprf.xlsx")
+```
+
+```{r plot}
+ggplot(levada, aes(x = Date, y = Percent, color = Party)) +
+  geom_point() +
+  geom_line() +
+  expand_limits(y = c(0, 30)) +
+  labs(title = "Percent of Decided Voters for LDPR, KPRF in Hypothetical Upcoming Election",
+       subtitle = "Data from Levada Center polls", 
+       caption = "Link to data source: https://www.levada.ru/2020/09/07/elektoralnye-rejtingi-partij-4/")
+
+ggsave("levada.png")
+```
+
